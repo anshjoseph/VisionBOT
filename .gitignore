@@ -1,0 +1,13 @@
+test.py
+*.jpeg
+*.jpg
+*.png
+datasets/
+runs/
+ControlPanel/__pycache__/
+VisionDes/API/__pycache__/
+VisionDes/API/VisionDescriptor/__pycache__/
+VisionDes/API/VisionDescriptor/DataModel/__pycache__/
+VisionDes/API/VisionDescriptor/DebugUtils/__pycache__/
+*.pt
+*.onnx

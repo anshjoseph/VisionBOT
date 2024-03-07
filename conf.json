@@ -1,0 +1,25 @@
+{
+    "VD": {
+        "host": "127.0.0.1",
+        "port": 8000,
+        "debug": true,
+        "reload": true,
+        "version": "v1",
+        "model_object_dectection": "yolov8x.pt",
+        "features": {
+            "Object_dection": true,
+            "OCR_enable": true,
+            "Color_intensity_dection": true
+        },
+        "temp":"./temp/",
+        "job_queue_size": 50,
+        "job_statging_area": 200,
+        "job_sleep": 10,
+        "control_panel":{
+            "telemetry":"telemetry",
+            "stop":"stop",
+            "start":"start"
+        }
+
+    }
+}
