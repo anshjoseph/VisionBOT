@@ -1,4 +1,7 @@
 {
+    "Common_Conf":{
+        "doc_delemeter": "|"
+    },
     "VD": {
         "host": "127.0.0.1",
         "port": 8000,
@@ -21,5 +24,21 @@
             "start":"start"
         }
 
+    },
+    "VB":{
+        "host": "127.0.0.1",
+        "port": 4000,
+        "debug": true,
+        "reload": true,
+        "version": "v1",
+        "openai":"OPENAI_KEY",
+        "temp":"./temp/",
+        "collection_up_time":2,
+        "retrive_doc": 2,
+        "control_panel":{
+            "telemetry":"telemetry",
+            "stop":"stop",
+            "start":"start"
+        }
     }
 }

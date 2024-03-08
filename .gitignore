@@ -2,6 +2,9 @@ test.py
 *.jpeg
 *.jpg
 *.png
+.env
+*.pt
+*.onnx
 datasets/
 runs/
 ControlPanel/__pycache__/
@@ -9,6 +12,8 @@ VisionDes/API/__pycache__/
 VisionDes/API/VisionDescriptor/__pycache__/
 VisionDes/API/VisionDescriptor/DataModel/__pycache__/
 VisionDes/API/VisionDescriptor/DebugUtils/__pycache__/
+VisionBot/API/__pycache__/
+VisionBot/API/VectorDatabase/__pycache__/
+VisionBot/API/VectorDatabase/DataModel/__pycache__/
 tests/__pycache__/
-*.pt
-*.onnx
+
