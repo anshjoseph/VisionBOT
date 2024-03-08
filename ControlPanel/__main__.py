@@ -13,12 +13,12 @@ with open('conf.json','r') as file:
 def genrate_URL(module:str,service:str):
     return f"http://{config.get(module).get('host')}:{config.get(module).get('port')}/{config.get(module).get('version')}/{config.get(module).get('control_panel').get(service)}"
 print("LOADING MODULE ...")
-module = list(config.keys())
+module = list(config.keys())[1:]
 print(f"MODULE FOUND [{','.join(module)}]")
 
 
 print("MAKE CONNECTION TO MODULE")
-for key in config.keys():
+for key in module:
     res = requests.get(genrate_URL(key,TELEMETRY))
     if res.status_code == 200:
         print(f"\t Module {key} is connected")
