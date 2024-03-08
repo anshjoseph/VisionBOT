@@ -80,13 +80,17 @@ class Processing_Data:
             if len(self.__pipeline_queue) > 0:
                 self.debug.print("new job is stating")
                 vision_descriptor = VisionDescriptor()
+                vision_descriptor.add_element("main_scene")
                 mat:np.array = self.__pipeline_queue.pop(0)
                 results = None
                 ## main feature pipe
                 if self.__fea_object_dection:
                     results = self.__image_object_dection.startProcessing(mat,vision_descriptor)
-                # if self.__fea_OCR_enable:
-                #     results = TestExtraction.run(mat,results,vision_descriptor)
+                if self.__fea_OCR_enable:
+                    if len(results.getAll()) > 0:
+                        TestExtraction.run(results,vision_descriptor)
+                    TestExtraction.read_image(mat,vision_descriptor)
+                
                 print(next(vision_descriptor.getVisionDes()))
                 
             

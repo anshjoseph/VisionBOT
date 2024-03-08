@@ -38,14 +38,14 @@ class ImageObjectDection:
         self.__model = YOLO(conf_object.get("model_object_dectection"))
         self.__debug = debug
     def startProcessing(self,mat:np.array,visiondes:VisionDescriptor) -> ObjectDectionResult:
-        results = self.__model(mat)
+        results = self.__model(mat,save=True,conf=0.5)
         output = ObjectDectionResult()
         for result in results:
             names = result.names
             classes = result.boxes.cls
             for index,class_idx in enumerate(classes.detach().numpy()):
                 x,y,w,h = np.array(result.boxes.xyxy[index].detach().numpy(),dtype=np.int32)
-                crop_img:np.array = mat[x:y,x+w:y+h]
+                crop_img:np.array = mat[x:y,w:h]
                 # print(names)
                 object_id = output.add_element(names[class_idx],result.boxes.conf[index].detach().numpy(),crop_img)
                 visiondes.add_element(object_id)
