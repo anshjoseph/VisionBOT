@@ -6,6 +6,7 @@ import time
 from uuid import uuid4
 from .image_text_processing import TestExtraction
 from .DataModel.ResultObject import VisionDescriptor
+from .image_summary_genration import VisionDescriptor_out_point
 
 class Singleton(type):
     _instances = {}
