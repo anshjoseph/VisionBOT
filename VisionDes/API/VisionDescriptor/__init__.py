@@ -92,7 +92,8 @@ class Processing_Data:
                         TestExtraction.run(results,vision_descriptor)
                     TestExtraction.read_image(mat,vision_descriptor)
                 
-                print(next(vision_descriptor.getVisionDes()))
+                # print(next(vision_descriptor.getVisionDes()))
+                VisionDescriptor_out_point.send(vision_descriptor)
                 
             
             

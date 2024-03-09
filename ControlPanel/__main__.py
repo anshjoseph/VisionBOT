@@ -24,6 +24,7 @@ for key in module:
         print(f"\t Module {key} is connected")
         print(f"\t Status: {res.json().get('status')}")
         print(f"\t Message: {res.json().get('message')}")
+        print("\t---------------------------------------")
     else:
         print(f"\t Module {key} is not connected")
     res.close()

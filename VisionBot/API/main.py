@@ -22,6 +22,7 @@ class VisionBOT:
         self.router.add_api_route(f"/{self.__version}/telemetry",self.telemetry,methods=['GET'])
         self.router.add_api_route(f"/{self.__version}/start",self.start,methods=["GET"])
     async def add_doc(self,doc:Doc):
+        print(doc.docs)
         self.data_processor.vectordb.add_docs(doc.docs)
         return "DONE"
     async def query(self,question:str):
