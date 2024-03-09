@@ -1,7 +1,6 @@
 from .DataModel.ResultObject import VisionDescriptor
 import json
 import requests
-from pydantic import BaseModel
 
 config = None
 with open('conf.json','r') as file:
@@ -20,4 +19,5 @@ class VisionDescriptor_out_point:
     def send(visiondes:VisionDescriptor):
         url = genrate_URL()
         print(visiondes_gen(visiondes))
+        ## actual work uncomment
         # res = requests.post(url,json={"docs":visiondes_gen(visiondes)})

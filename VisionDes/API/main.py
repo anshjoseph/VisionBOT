@@ -24,7 +24,7 @@ class VisionAPI:
         self.__processor:Processing_Data = __processor
         
         # ROUTES
-        self.router.add_api_route(f"/{self.__version}/push_imag", self.push_imag, methods=["POST"])
+        self.router.add_api_route(f"/{self.__version}/push_imag", self.push_imag, methods=["POST"]) # can mod
         self.router.add_api_route(f"/{self.__version}/stop",self.stop_processing_pipeline,methods=["GET"])
         self.router.add_api_route(f"/{self.__version}/telemetry",self.__processor.get_telemetry_data,methods=['GET'])
         self.router.add_api_route(f"/{self.__version}/start",self.start_processing_pipeline,methods=["GET"])

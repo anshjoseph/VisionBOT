@@ -74,7 +74,7 @@ class Processing_Data:
 
 
     def __run_job(self):
-        "MAIN PIPE LINE FUNCTION"
+        "MAIN PIPE LINE FUNCTION (THRAED)"
         while not self.stop.is_set():
             self.debug.print(f"Object id: {self.id}")
             self.debug.print("thread is start processing")
@@ -82,11 +82,15 @@ class Processing_Data:
                 self.debug.print("new job is stating")
                 vision_descriptor = VisionDescriptor()
                 vision_descriptor.add_element("main_scene")
-                mat:np.array = self.__pipeline_queue.pop(0)
+                mat:np.array = self.__pipeline_queue.pop(0) # img
                 results = None
+
+
+
                 ## main feature pipe
                 if self.__fea_object_dection:
                     results = self.__image_object_dection.startProcessing(mat,vision_descriptor)
+                
                 if self.__fea_OCR_enable:
                     if len(results.getAll()) > 0:
                         TestExtraction.run(results,vision_descriptor)

@@ -9,6 +9,7 @@ class BOT:
         if self.vectorDB_controller.is_runing:
             arc_data = self.vectorDB_controller.query(query)
             print(arc_data)
+            # change 
             messages.append({"role": "user", "content": f"{arc_data} \nanswer the question from above world describtion"})
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",

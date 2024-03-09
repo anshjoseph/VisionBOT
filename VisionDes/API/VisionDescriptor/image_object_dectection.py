@@ -44,6 +44,7 @@ class ImageObjectDection:
             names = result.names
             classes = result.boxes.cls
             for index,class_idx in enumerate(classes.detach().numpy()):
+                ## ERROR
                 x,y,w,h = np.array(result.boxes.xyxy[index].detach().numpy(),dtype=np.int32)
                 crop_img:np.array = mat[x:y,w:h]
                 # print(names)
