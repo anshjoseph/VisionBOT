@@ -33,8 +33,37 @@
         "version": "v1",
         "openai":"OPENAI_KEY",
         "temp":"./temp/",
-        "collection_up_time":2,
+        "collection_up_time":5,
         "retrive_doc": 2,
+        "control_panel":{
+            "telemetry":"telemetry",
+            "stop":"stop",
+            "start":"start"
+        }
+    },
+    "CVFS":{
+        "host": "127.0.0.1",
+        "port": 5000,
+        "debug": true,
+        "reload": true,
+        "version": "v1",
+        "cam_sleep":2,
+        "temp":"./temp/",
+        "cam_id":"sampleData.mp4",
+        "control_panel":{
+            "telemetry":"telemetry",
+            "stop":"stop",
+            "start":"start"
+        }
+    },
+    "CAFS":{
+        "host": "127.0.0.1",
+        "port": 6000,
+        "debug": true,
+        "reload": true,
+        "version": "v1",
+        "voice_rate": 125,
+        "voice_id": 0,
         "control_panel":{
             "telemetry":"telemetry",
             "stop":"stop",

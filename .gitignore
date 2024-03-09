@@ -15,5 +15,6 @@ VisionDes/API/VisionDescriptor/DebugUtils/__pycache__/
 VisionBot/API/__pycache__/
 VisionBot/API/VectorDatabase/__pycache__/
 VisionBot/API/VectorDatabase/DataModel/__pycache__/
+*.mp4
 tests/__pycache__/
 
