@@ -43,13 +43,21 @@ class ImageObjectDection:
         for result in results:
             names = result.names
             classes = result.boxes.cls
+            temp_dict = dict()
             for index,class_idx in enumerate(classes.detach().numpy()):
                 ## ERROR
                 x,y,w,h = np.array(result.boxes.xyxy[index].detach().numpy(),dtype=np.int32)
-                crop_img:np.array = mat[x:y,w:h]
+                crop_img:np.array = mat[y:h,x:w]
                 # print(names)
                 object_id = output.add_element(names[class_idx],result.boxes.conf[index].detach().numpy(),crop_img)
                 visiondes.add_element(object_id)
                 visiondes.add_element_attribute(object_id,"type",names[class_idx])
+                if temp_dict.get(names[class_idx]) == None:
+                    temp_dict[names[class_idx]] = 0
+                temp_dict[names[class_idx]] += 1
                 visiondes.add_element_attribute(object_id,"confidence",result.boxes.conf[index].detach().numpy())
+            if len(temp_dict) > 0:
+                visiondes.add_element_attribute("main_scene","summary",f"there are {' '.join([str(temp_dict[key])+' '+str(key) for key in temp_dict ])}")
+            else:
+                visiondes.add_element_attribute("main_scene","summary",f"we didn't any objects")
         return output

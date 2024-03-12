@@ -13,11 +13,12 @@ def visiondes_gen(visiondes:VisionDescriptor):
     ret = ""
     for des in visiondes.getVisionDes():
         ret += des+"|"
-    return ret[::-1]
+    return ret[:-1]
 class VisionDescriptor_out_point:
     @staticmethod
     def send(visiondes:VisionDescriptor):
         url = genrate_URL()
-        print(visiondes_gen(visiondes))
+        # print(visiondes_gen(visiondes))
         ## actual work uncomment
-        # res = requests.post(url,json={"docs":visiondes_gen(visiondes)})
+        res = requests.post(url,json={"docs":visiondes_gen(visiondes)})
+        print(f"Send: {visiondes_gen(visiondes)}")
